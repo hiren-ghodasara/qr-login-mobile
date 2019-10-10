@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="register(form)" method="post">
+    <!-- <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input ngModel name="fName"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input ngModel name="lName"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" ngModel name="email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" ngModel name="password"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input name="name" type="text" placeholder="Name" [(ngModel)]="Uname" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input name="email" type="email" placeholder="your@email.com" [(ngModel)]="Uemail" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input name="password" [type]="passwordType" placeholder="Password" [(ngModel)]="Upass" required> </ion-input>
+      <ion-icon
+        color="dark"
+        [name]="passwordShow == true ? 'eye' : 'eye-off'"
+        class="ion-align-self-end"
+        (click)="togglePass()"
+      ></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password again</ion-label>
+      <ion-input
+        name="password_confirmation"
+        [type]="passwordType"
+        placeholder="Password again"
+        [ngModel]="Upass"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-button class="ion-margin-top" type="submit" expand="full" [disabled]="form.invalid" color="danger"
+      >Register</ion-button
+    >
+  </form>
+
+  <!-- <p text-center>OR</p>
+
+  <ion-button expand="full">
+    <ion-icon name="logo-google"></ion-icon>
+  </ion-button>
+
+  <ion-button expand="full">
+    <ion-icon name="logo-facebook"></ion-icon>
+  </ion-button>
+
+  <ion-button expand="full">
+    <ion-icon name="logo-twitter"></ion-icon>
+  </ion-button> -->
+
+  <p class="ion-text-right">Already have a account?</p>
+  <ion-button expand="full" color="primary" (click)="loginModal()">Login</ion-button>
+</ion-content>

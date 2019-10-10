@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+    <!-- <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" type="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="password" type="password" name="password"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-input [(ngModel)]="email" name="email" type="email" placeholder="your@email.com" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="password"  name="password" type="password" placeholder="Password" required></ion-input>
+    </ion-item>
+
+    <ion-button class="ion-margin-top" type="submit" expand="full" color="primary">Login</ion-button>
+  </form>
+
+  <!-- <p text-center>OR</p>
+  
+    <ion-button expand="full">
+      <ion-icon name="logo-google"></ion-icon>
+    </ion-button>
+  
+    <ion-button expand="full">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </ion-button>
+  
+    <ion-button expand="full">
+      <ion-icon name="logo-twitter"></ion-icon>
+    </ion-button> -->
+
+  <p class="ion-text-right">Don't have a account?</p>
+  <ion-button expand="full" color="danger" (click)="registerModal()">Register</ion-button>
+</ion-content>
+

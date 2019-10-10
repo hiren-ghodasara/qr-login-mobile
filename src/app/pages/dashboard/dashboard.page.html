@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-title *ngIf="user != undefined">Welcome {{ user["name"] }} </ion-card-title>
+      <ion-list *ngIf="user != undefined">
+        <ion-item>Name : {{ user["name"] }}</ion-item>
+        <ion-item>Email : {{ user["email"] }}</ion-item>
+        <ion-item>Joining Date : {{ user["created_at"] | date: "dd/MM/yyyy" }}</ion-item>
+      </ion-list>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="!scannedData">
+        <ion-button (click)="scanCode()" shape="round" expand="block">
+          Scan Code
+        </ion-button>
+      </div>
+      <div *ngIf="scannedData">
+        <ion-button (click)="runData()" shape="round" expand="block">
+          Login To Web
+        </ion-button>
+      </div>
+      <ion-button (click)="getUser()" shape="round" expand="block">
+        Reload User Info
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

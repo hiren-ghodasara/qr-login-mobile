@@ -1,5 +1,7 @@
 {
   "name": "qr-login-mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
