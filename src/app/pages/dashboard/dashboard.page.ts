@@ -11,7 +11,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class DashboardPage implements OnInit {
   user: any;
-  scannedData: {};
+  scannedData: any = false;
   barcodeScannerOptions: BarcodeScannerOptions;
 
   constructor(
@@ -64,11 +64,13 @@ export class DashboardPage implements OnInit {
     this.authService.decodeQR(this.scannedData).subscribe(
       data => {
         console.log('runData data', data);
-        this.scannedData = {};
+        this.scannedData = false;
+        this.loading.dismiss();
       },
       error => {
         console.log('runData error', error);
-        this.scannedData = {};
+        this.scannedData = false;
+        this.loading.dismiss();
       },
       () => {
         this.loading.dismiss();

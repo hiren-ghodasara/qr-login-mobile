@@ -11,11 +11,15 @@
   <ion-card class="welcome-card">
     <ion-img src="/assets/shapes.svg"></ion-img>
     <ion-card-header>
-      <ion-card-title *ngIf="user != undefined">Welcome {{ user["name"] }} </ion-card-title>
+      <ion-card-title *ngIf="user != undefined"
+        >Welcome {{ user["name"] }}
+      </ion-card-title>
       <ion-list *ngIf="user != undefined">
         <ion-item>Name : {{ user["name"] }}</ion-item>
         <ion-item>Email : {{ user["email"] }}</ion-item>
-        <ion-item>Joining Date : {{ user["created_at"] | date: "dd/MM/yyyy" }}</ion-item>
+        <ion-item>
+          Joining Date :{{ user["created_at"] | date: "dd/MM/yyyy" }}
+        </ion-item>
       </ion-list>
     </ion-card-header>
     <ion-card-content>

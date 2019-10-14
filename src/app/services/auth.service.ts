@@ -1,11 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { EnvService } from './env.service';
-import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
-import { async } from '@angular/core/testing';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +15,10 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private storage: NativeStorage,
-    private env: EnvService,
-    private router: Router,
-    private toastController: ToastController
   ) { }
 
   login(email: string, password: string) {
-    return this.http.post(this.env.API_URL + 'api/login',
+    return this.http.post(environment.API_URL + 'api/login',
       { email, password }
     ).pipe(
       tap((token: any) => {
@@ -45,18 +39,18 @@ export class AuthService {
   }
 
   register(formData: any = {}) {
-    return this.http.post(this.env.API_URL + 'api/register',
+    return this.http.post(environment.API_URL + 'api/register',
       formData
     );
   }
 
   logout() {
-    console.log("this.token", this.token);
+    console.log('this.token', this.token);
     // const headers = new HttpHeaders({
     //   Authorization: this.token.token_type + ' ' + this.token.access_token
     // });
     this.storage.remove('token');
-    return this.http.get(this.env.API_URL + 'api/logout')
+    return this.http.get(environment.API_URL + 'api/logout')
       .pipe(
         tap(data => {
           this.storage.remove('token');
@@ -68,7 +62,7 @@ export class AuthService {
   }
 
   user() {
-    return this.http.get(this.env.API_URL + 'api/user')
+    return this.http.get(environment.API_URL + 'api/user')
       .pipe(
         tap(user => {
           return user;
@@ -77,7 +71,7 @@ export class AuthService {
   }
 
   decodeQR(formData: any = {}) {
-    return this.http.post(this.env.API_URL + 'api/decode-qr',
+    return this.http.post(environment.API_URL + 'api/decode-qr',
       formData
     );
   }

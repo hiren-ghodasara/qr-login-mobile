@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -48,7 +47,7 @@ export class AppComponent {
   logout() {
     this.authService.logout().subscribe(
       data => {
-        console.log("data",data);
+        console.log('data', data);
         this.alertService.presentToast(data['message']);
       },
       error => {

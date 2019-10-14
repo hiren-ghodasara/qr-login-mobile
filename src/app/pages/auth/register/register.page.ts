@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ToastController, NavController, LoadingController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { Router } from '@angular/router';
@@ -14,9 +14,10 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class RegisterPage implements OnInit {
   passwordType = 'password';
   passwordShow = false;
-  Uname = 'Hiren Patel';
-  Uemail = 'hiren_1@test.com';
-  Upass = '123456789';
+  Uname = '';
+  Uemail = '';
+  Upass = '';
+
   constructor(
     private authService: AuthService,
     private navCtrl: NavController,

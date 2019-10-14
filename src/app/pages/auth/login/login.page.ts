@@ -12,13 +12,13 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  email: any = 'hp@demo.com';
-  password: any = '123456789';
+  email: any = '';
+  password: any = '';
 
   constructor(
     private authService: AuthService,
     private navCtrl: NavController,
-    public loading: LoadingService,
+    private loading: LoadingService,
     private router: Router,
     private alertService: AlertService
   ) { }
@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
       },
       error => {
         console.log(error);
+        this.loading.dismiss();
       },
       () => {
         this.loading.dismiss();
