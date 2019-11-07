@@ -18,6 +18,7 @@ export class AuthService {
   ) { }
 
   login(email: string, password: string) {
+    console.log('environment.API_URL', environment.API_URL);
     return this.http.post(environment.API_URL + 'api/login',
       { email, password }
     ).pipe(

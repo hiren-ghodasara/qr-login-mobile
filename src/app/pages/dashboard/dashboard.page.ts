@@ -41,7 +41,7 @@ export class DashboardPage implements OnInit {
       user => {
         this.user = user;
       }, err => {
-
+        this.loading.dismiss();
       }, () => {
         this.loading.dismiss();
       }

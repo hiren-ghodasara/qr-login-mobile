@@ -46,12 +46,4 @@ export class LandingPage implements OnInit {
   async login() {
     this.router.navigate(['/login']);
   }
-
-  codeScan() {
-    this.barcodeScanner.scan().then(barcodeData => {
-      // success. barcodeData is the data returned by scanner
-    }).catch(err => {
-      // error
-    });
-  }
 }
